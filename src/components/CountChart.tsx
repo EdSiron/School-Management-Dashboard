@@ -1,6 +1,7 @@
 "use client"
 import Image from 'next/image';
 import { ResponsiveContainer, RadialBarChart, RadialBar, Legend } from 'recharts';
+import { MoreIcon } from './Icons';
 
 const data = [
   {
@@ -26,7 +27,7 @@ const CountChart = () => {
         {/* TITLE */}
         <div className='flex justify-between items-center'>
             <h1 className='text-lg font-semibold'>Students</h1>
-            <Image src="/moreDark.png" alt="" width={20} height={20} />
+            <MoreIcon stroke="#575757" width={30} height={30}/>
         </div>
         {/* CHART */}
         <div className='relative w-full h-[75%]'>

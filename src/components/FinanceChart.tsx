@@ -11,6 +11,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import { MoreIcon } from "./Icons";
 
 // #region Sample data
 const data = [
@@ -82,7 +83,7 @@ const FinanceChart = () => {
       {/* TITLE */}
       <div className="flex justify-between items-center">
         <h1 className="text-lg font-semibold">Finance</h1>
-        <Image src="/moreDark.png" alt="" width={20} height={20} />
+        <MoreIcon stroke="#575757" width={30} height={30}/>
       </div>
       <ResponsiveContainer width="100%" height="90%">
         <LineChart

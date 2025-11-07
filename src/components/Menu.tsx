@@ -1,92 +1,111 @@
-import Image from "next/image";
 import Link from "next/link";
+import {
+  HomeIcon,
+  TeacherIcon,
+  StudentIcon,
+  ParentIcon,
+  SubjectIcon,
+  ClassIcon,
+  LessonIcon,
+  ExamIcon,
+  AssignmentIcon,
+  ResultIcon,
+  AttendanceIcon,
+  EventIcon,
+  MessageIcon,
+  AnnouncementIcon,
+  ProfileIcon,
+  SettingIcon,
+  LogoutIcon,
+} from "@/components/Icons";
+import { role } from "@/lib/data";
 
 const menuItems = [
   {
     title: "MENU",
     items: [
       {
-        icon: "/home.png",
+        icon: <HomeIcon />,
         label: "Home",
         href: "/",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/teacher.png",
+        icon: <TeacherIcon />,
         label: "Teachers",
-        href: "/list/teachers",
+        href: "/teacher",
         visible: ["admin", "teacher"],
       },
       {
-        icon: "/student.png",
+        icon: <StudentIcon />,
         label: "Students",
-        href: "/list/students",
+        href: "/student",
         visible: ["admin", "teacher"],
       },
       {
-        icon: "/parent.png",
+        icon: <ParentIcon />,
         label: "Parents",
-        href: "/list/parents",
+        href: "/parent",
         visible: ["admin", "teacher"],
       },
       {
-        icon: "/subject.png",
-        label: "Subjects",
-        href: "/list/subjects",
+        icon: <SubjectIcon />,
+        label: "Subject",
+        href: "/subjects",
         visible: ["admin"],
       },
       {
-        icon: "/class.png",
+        icon: <ClassIcon />,
         label: "Classes",
-        href: "/list/classes",
+        href: "/classes",
         visible: ["admin", "teacher"],
       },
       {
-        icon: "/lesson.png",
+        icon: <LessonIcon />,
         label: "Lessons",
-        href: "/list/lessons",
+        href: "/lessons",
         visible: ["admin", "teacher"],
       },
       {
-        icon: "/exam.png",
+        icon: <ExamIcon />,
         label: "Exams",
-        href: "/list/exams",
+        href: "/exams",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/assignment.png",
+        icon: <AssignmentIcon />,
         label: "Assignments",
-        href: "/list/assignments",
+        href: "/assignments",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/result.png",
+        icon: <ResultIcon />,
         label: "Results",
-        href: "/list/results",
+        href: "/results",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/attendance.png",
+        icon: <AttendanceIcon />,
         label: "Attendance",
-        href: "/list/attendance",
+        href: "/attendance",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/calendar.png",
+        icon: <EventIcon />,
         label: "Events",
-        href: "/list/events",
+        href: "/events",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/message.png",
+        icon: <MessageIcon />,
         label: "Messages",
-        href: "/list/messages",
+        href: "/messages",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/announcement.png",
+        icon: <AnnouncementIcon />,
         label: "Announcements",
-        href: "/list/announcements",
+        href: "/announcements",
         visible: ["admin", "teacher", "student", "parent"],
       },
     ],
@@ -95,19 +114,19 @@ const menuItems = [
     title: "OTHER",
     items: [
       {
-        icon: "/profile.png",
+        icon: <ProfileIcon />,
         label: "Profile",
         href: "/profile",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/setting.png",
+        icon: <SettingIcon />,
         label: "Settings",
         href: "/settings",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/logout.png",
+        icon: <LogoutIcon />,
         label: "Logout",
         href: "/logout",
         visible: ["admin", "teacher", "student", "parent"],
@@ -118,20 +137,28 @@ const menuItems = [
 
 const Menu = () => {
   return (
-    <div className='mt-4 text-sm'>
-      {menuItems.map(i=>(
+    <div className="mt-4 text-sm">
+      {menuItems.map((i) => (
         <div className="flex flex-col gap-1" key={i.title}>
-          <span className="hidden lg:block text-gray-400 font-light my-4">{i.title}</span>
-          {i.items.map(item=>(
-            <Link href={item.href} key={item.label} className="flex item-center justify-center lg:justify-start gap-4 text-gray-500 py-2">
-              <Image src={item.icon} alt="" width={20} height={20} />
-              <span className="hidden lg:block">{item.label}</span>
-            </Link>
+          <span className="hidden lg:block text-gray-400 font-light my-4">
+            {i.title}
+          </span>
+          {i.items.map((item) => (
+            item.visible.includes(role) ? (
+              <Link
+                href={item.href}
+                key={item.label}
+                className="flex item-center justify-center lg:justify-start gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-lamaSkyLight"
+              >
+                {item.icon}
+                <span className="hidden lg:block">{item.label}</span>
+              </Link>
+            ) : null
           ))}
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;
