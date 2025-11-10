@@ -33,55 +33,55 @@ const menuItems = [
       {
         icon: <TeacherIcon />,
         label: "Teachers",
-        href: "/teacher",
+        href: "/list/teachers",
         visible: ["admin", "teacher"],
       },
       {
         icon: <StudentIcon />,
         label: "Students",
-        href: "/student",
+        href: "/list/students",
         visible: ["admin", "teacher"],
       },
       {
         icon: <ParentIcon />,
         label: "Parents",
-        href: "/parent",
+        href: "/list/parents",
         visible: ["admin", "teacher"],
       },
       {
         icon: <SubjectIcon />,
         label: "Subject",
-        href: "/subjects",
+        href: "/list/subjects",
         visible: ["admin"],
       },
       {
         icon: <ClassIcon />,
         label: "Classes",
-        href: "/classes",
+        href: "/list/classes",
         visible: ["admin", "teacher"],
       },
       {
         icon: <LessonIcon />,
         label: "Lessons",
-        href: "/lessons",
+        href: "/list/lessons",
         visible: ["admin", "teacher"],
       },
       {
         icon: <ExamIcon />,
         label: "Exams",
-        href: "/exams",
+        href: "/list/exams",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
         icon: <AssignmentIcon />,
         label: "Assignments",
-        href: "/assignments",
+        href: "/list/assignments",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
         icon: <ResultIcon />,
         label: "Results",
-        href: "/results",
+        href: "/list/results",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
@@ -93,7 +93,7 @@ const menuItems = [
       {
         icon: <EventIcon />,
         label: "Events",
-        href: "/events",
+        href: "/list/events",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
@@ -105,7 +105,7 @@ const menuItems = [
       {
         icon: <AnnouncementIcon />,
         label: "Announcements",
-        href: "/announcements",
+        href: "/list/announcements",
         visible: ["admin", "teacher", "student", "parent"],
       },
     ],
@@ -143,7 +143,7 @@ const Menu = () => {
           <span className="hidden lg:block text-gray-400 font-light my-4">
             {i.title}
           </span>
-          {i.items.map((item) => (
+          {i.items.map((item) =>
             item.visible.includes(role) ? (
               <Link
                 href={item.href}
@@ -154,7 +154,7 @@ const Menu = () => {
                 <span className="hidden lg:block">{item.label}</span>
               </Link>
             ) : null
-          ))}
+          )}
         </div>
       ))}
     </div>

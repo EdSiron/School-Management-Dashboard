@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   ResponsiveContainer,
   LineChart,
@@ -83,7 +82,7 @@ const FinanceChart = () => {
       {/* TITLE */}
       <div className="flex justify-between items-center">
         <h1 className="text-lg font-semibold">Finance</h1>
-        <MoreIcon stroke="#575757" width={30} height={30}/>
+        <MoreIcon stroke="#575757" width={30} height={30} />
       </div>
       <ResponsiveContainer width="100%" height="90%">
         <LineChart
@@ -118,7 +117,12 @@ const FinanceChart = () => {
             stroke="#C3EBFA"
             strokeWidth={5}
           />
-          <Line type="monotone" dataKey="expense" stroke="#CFCEFF" strokeWidth={5} />
+          <Line
+            type="monotone"
+            dataKey="expense"
+            stroke="#CFCEFF"
+            strokeWidth={5}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>
